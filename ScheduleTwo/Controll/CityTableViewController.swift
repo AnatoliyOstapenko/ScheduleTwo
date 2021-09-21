@@ -46,11 +46,24 @@ class CityTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let item = tableView.cellForRow(at: indexPath) else { return }
+        let item = array[indexPath.row]
         
-        guard let text = item.textLabel?.text else { return }
+        // get text from selected row
+        guard let newItem = tableView.cellForRow(at: indexPath), let text = newItem.textLabel?.text else { return }
         
-        print(text)
+        let alert = UIAlertController(title: text, message: "", preferredStyle: .alert)
+        
+        let deleteButton = UIAlertAction(title: "delete", style: .destructive) { (action) in
+            
+        self.deleteItem(item)
+            
+        }
+        let cancelButton = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteButton)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true, completion: nil)
         
         
         
@@ -73,7 +86,7 @@ class CityTableViewController: UITableViewController {
             
             guard let text = textField.text else { return }
             
-            // 2
+            // 2 create an item to dispatch to persistent container
             let item = Item(context: self.context)
             
             item.city = text
@@ -106,12 +119,15 @@ class CityTableViewController: UITableViewController {
     // 5
     func loadData() {
         
-        let request: NSFetchRequest <Item> = Item.fetchRequest()
-        
         do {
-            array = try context.fetch(request)
+            array = try context.fetch(Item.fetchRequest())
         } catch { print("loading error \(error)") }
         
+    }
+    
+    func deleteItem(_ item: Item) {
+        context.delete(item)
+        saveData()
     }
     
 }

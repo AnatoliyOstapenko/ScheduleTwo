@@ -39,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2C037126FA493F00CC059B /* Controll */ = {
+			isa = PBXGroup;
+			children = (
+				FA71D7A326F76CD200D38890 /* CityTableViewController.swift */,
+			);
+			path = Controll;
+			sourceTree = "<group>";
+		};
+		FA2C037226FA49A200CC059B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA71D79026F76C2200D38890 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA71D77E26F76C2200D38890 = {
 			isa = PBXGroup;
 			children = (
@@ -58,24 +74,16 @@
 		FA71D78926F76C2200D38890 /* ScheduleTwo */ = {
 			isa = PBXGroup;
 			children = (
-				FA71D7AC26F7803700D38890 /* Module */,
 				FA71D78A26F76C2200D38890 /* AppDelegate.swift */,
 				FA71D78C26F76C2200D38890 /* SceneDelegate.swift */,
-				FA71D7A326F76CD200D38890 /* CityTableViewController.swift */,
-				FA71D79026F76C2200D38890 /* Main.storyboard */,
+				FA2C037226FA49A200CC059B /* View */,
+				FA2C037126FA493F00CC059B /* Controll */,
 				FA71D79626F76C2700D38890 /* Assets.xcassets */,
 				FA71D79826F76C2700D38890 /* LaunchScreen.storyboard */,
 				FA71D79B26F76C2700D38890 /* Info.plist */,
 				FA71D79326F76C2200D38890 /* ScheduleTwo.xcdatamodeld */,
 			);
 			path = ScheduleTwo;
-			sourceTree = "<group>";
-		};
-		FA71D7AC26F7803700D38890 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
