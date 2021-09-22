@@ -53,15 +53,13 @@ class CityTableViewController: UITableViewController {
         
         let alert = UIAlertController(title: text, message: "", preferredStyle: .alert)
         
-        let deleteButton = UIAlertAction(title: "delete", style: .destructive) { (action) in
+        alert.addAction(UIAlertAction(title: "delete", style: .destructive) { (action) in
             
         self.deleteItem(item)
             
-        }
-        let cancelButton = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        })
         
-        alert.addAction(deleteButton)
-        alert.addAction(cancelButton)
+        alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
         
